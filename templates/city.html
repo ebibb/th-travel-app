@@ -37,7 +37,12 @@
   <h1 id="searchTitle">Search Results</h1>
   <p>{{ results }}</p>
   {% for result_item in results.data %}
-    <p>{{ result_item }}</p>
+    
+  <p>{{ result_item.name}}</p>
+  <p>{{ result_item.address_obj}}</p>
+  <p>{{ result_item }}</p>
+  <p>{{ result_item }}</p>
+
   {% endfor %}
 </body>
 </html>
