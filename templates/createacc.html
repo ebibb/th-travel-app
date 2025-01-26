@@ -3,6 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register</title>
+  <link rel="stylesheet" href="./static/styles.css">
+  <script>
+    async function submitForm(event) {
+  event.preventDefault();
+  const formData = {
+    username: document.getElementById('username').value,
+    password: document.getElementById('password').value,
+    age: document.getElementById('age').value,
+    people: document.getElementById('people').value,
+    kids: document.getElementById('kids').value,
+    activities: document.getElementById('activities').value,
+    geo: document.getElementById('geo').value
+  };
+  try {
+    const response = await fetch('http://127.0.0.1:5000/createacc', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+    
+    const result = await response.json();
+    alert(result.message);
+    if (result.success) window.location.href = '/login';
+  } catch (error) {
+    console.error('Network Error:', error);
+    alert('Cannot connect to server. Is the server running?');
+  }
+}
+  </script>
+</head>
+<body>
+  <div class="container">
+    <form onsubmit="submitForm(event)">
+      <h2>Create Account</h2>
+      <label for="username">Username</label>
+      <input type="text" id="username" required>
+      <label for="password">Password</label>
+      <input type="password" id="password" required>
+      <label for="age">Age</label>
+      <input type="number" id="age" required>
+      <label for="people">How Many People</label>
+      <input type="number" id="people" required>
+      <label for="kids">Traveling with Kids</label>
+      <select id="kids" required>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <label for="activities">Desired Activities</label>
+      <select id="activities" required>
+        <option value="sightseeing">Sightseeing</option>
+        <option value="adventure">Adventure</option>
+        <option value="relaxation">Relaxation</option>
+        <option value="cultural">Cultural</option>
+        <option value="food">Food</option>
+      </select>
+      <label for="geo">Geographical Setting</label>
+      <select id="geo">
+        <option value="mountains">Mountains</option>
+        <option value="beach">Beach</option>
+        <option value="water">Water</option>
+        <option value="forests">Forests</option>
+      </select>
+      <button type="submit">Create Account</button>
+    </form>
+  </div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Create Account</title>
   <style>
     body {
@@ -71,10 +147,40 @@
       background-color: #0056b3;
     }
   </style>
+  <script>
+    async function submitForm(event) {
+      event.preventDefault();
+
+      const formData = {
+        username: document.getElementById('username').value,
+        password: document.getElementById('password').value
+      };
+
+      try {
+        const response = await fetch('/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+        if (response.ok) {
+          alert(result.message);
+        } else {
+          alert(result.message);
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }
+    }
+  </script>
 </head>
 <body>
   <div class="form-container">
-    <!-- Left Section: Personal Info -->
+    <form onsubmit="submitForm(event)">
     <div class="form-section">
       <h2>Create Account</h2>
       <label for="name">Full Name</label>
@@ -87,7 +193,6 @@
       <input type="password" id="password" name="password" placeholder="Create a password" required>
     </div>
 
-    <!-- Right Section: Profile Info -->
     <div class="form-section">
       <h2>Your Profile</h2>
       <label for="age">Age</label>
@@ -121,9 +226,10 @@
     </div>
   </div>
 
-  <!-- Bottom: Create Account Button -->
   <div style="text-align: center;">
     <button type="submit">Create Account</button>
   </div>
+</form>
+</div>
 </body>
-</html
+</html -->
