@@ -3,34 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Gems</title>
+    <title>Gem Postings</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            position: relative;
         }
-        .gems {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin: 10px 0;
-            padding: 10px;
-            background-color: #f9f9f9;
-        }
-        .name {
+
+        .title-link {
+            font-size: 30px;
             font-weight: bold;
-            font-size: 18px;
+            color: #007bff;
+            text-decoration: none;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .title-link:hover {
+            color: #0056b3;
+        }
+
+        .post {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .post img {
+            max-width: 30%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .post-content {
+            max-width: 60%;
+        }
+
+        .post h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .post p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        .rating {
+            font-weight: bold;
+            color: #ff9800;
         }
     </style>
 </head>
 <body>
-    <h1>User Gems</h1>
-    <div id="gems-container">
-        {% for gem in gems %}
-        <div class="gems">
-            <p class="name">{{ gem.name }}</p>
-            <p>{{ gem.content }}</p>
+    <!-- Title with Link at the top left corner -->
+    <a href="http://127.0.0.1:5500/templates/home.html#" class="title-link">Trip Tuner</a>
+
+    <div class="post">
+        <div class="post-content">
+            <h2>6 Flags</h2>
+            <p>6 Flags is a thrilling amusement park offering roller coasters, live entertainment, and family-friendly rides. It's a perfect destination for thrill-seekers and families alike!</p>
+            <p class="rating">Rating: 4.5/5</p>
         </div>
-        {% endfor %}
+        <img src="https://www.newsnationnow.com/wp-content/uploads/sites/108/2021/08/SFFT_Cliffhanger05_11x17_150dpi.jpg" alt="6 Flags" />
+    </div>
+
+    <div class="post">
+        <div class="post-content">
+            <h2>Riverwalk</h2>
+            <p>The Riverwalk is a scenic, serene walk along the San Antonio River, lined with restaurants, shops, and beautiful views. It's a must-visit for a relaxing stroll or boat ride.</p>
+            <p class="rating">Rating: 4.8/5</p>
+        </div>
+        <img src="https://www.emilymorganhotel.com/wp-content/uploads/2021/08/riverwalk-day.jpg" alt="Riverwalk" />
+    </div>
+
+    <div class="post">
+        <div class="post-content">
+            <h2>The Pearl Market</h2>
+            <p>The Pearl Market is a vibrant place full of unique local goods, artisanal food, and a great place to enjoy San Antonio’s culture. Don't miss the food stalls and live events!</p>
+            <p class="rating">Rating: 4.7/5</p>
+        </div>
+        <img src="https://feastio.com/wp-content/uploads/2024/01/Pearl-Brewery-San-Antonio.jpg" alt="The Pearl Market" />
     </div>
 </body>
 </html>

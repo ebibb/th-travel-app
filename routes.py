@@ -28,12 +28,12 @@ def city():
     # city search ##################
     search_info = request.args.get('q')
     
-    params = {
-        'key': API_KEY,
-        'searchQuery': search_info,
-        'category': "attractions",
-        'language': 'en'
-    }
+    # params = {
+    #     'key': API_KEY,
+    #     'searchQuery': search_info,
+    #     'category': "attractions",
+    #     'language': 'en'
+    # }
     
     res = requests.get(URL, params=params)
     results_data = res.json()
@@ -43,11 +43,11 @@ def city():
     
     params_id = {
         'locationId': 
-        'key': API_KEY,
+       'key': API_KEY,
         'language': 'en',
         'limit': '1',
         'offset': '0'
-    }
+                }
     
     location_id = []
     

@@ -52,6 +52,11 @@
       font-size: 24px;
     }
 
+    .top-right a {
+      text-decoration: none;
+      color: #007bff;
+    }
+
     /* Fixed menu bar at the bottom */
     .menu-bar {
       position: fixed;
@@ -74,22 +79,7 @@
     .content {
       padding-bottom: 60px; /* Space for the fixed menu */
     }
-  </style>
-</head>
-<body>
-  <!-- Title Section -->
-  <h1>Trip Tuner</h1>
 
-    <!-- Search Section -->
-    <div class="search-container">
-      <form action="/city" method="get">
-        <input type="text" name="q" placeholder="Search...">
-        <button type="submit">Search</button>
-      </form>
-    </div>
-
-   <!-- Content Section -->
-   <style>
     .content {
       display: flex;
       flex-direction: column;
@@ -100,10 +90,28 @@
       text-align: center;
     }
   </style>
-  
+</head>
+<body>
+  <!-- Title Section -->
+  <h1>Trip Tuner</h1>
+
+  <!-- Top Right Corner Log In Link -->
+  <div class="top-right">
+    <a href="http://127.0.0.1:5500/templates/login.html">Log in</a>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-container">
+    <form action="/city" method="get">
+      <input type="text" name="q" placeholder="Search...">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- Content Section -->
   <div class="content">
     <h2>Your Journey Begins Here.</h2>
-    <p>Explore some of the best travel destinations tailored for you!</p>
+    <p>Explore the best travel destinations tailored for you!</p>
     <p>Use the search bar above to find more options.</p>
   </div>
 
@@ -111,12 +119,12 @@
   <div class="menu-bar">
     <!-- Icon 1 -->
     <a href="http://127.0.0.1:5500/templates/gems.html">
-    <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/gem-1761942-1500326.png?f=webp&w=256" alt="Icon 1" width="340" height="370">
+      <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/gem-1761942-1500326.png?f=webp&w=256" alt="Icon 1" width="340" height="370">
     </a>
 
     <!-- Icon 2 -->
     <a href="http://127.0.0.1:5500/templates/post.html">
-    <img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="Icon 2">
+      <img src="https://cdn-icons-png.flaticon.com/512/32/32339.png" alt="Icon 2">
     </a>
 
     <!-- Icon 3 with Link -->

@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Attractions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .title-link {
+            font-size: 30px;
+            font-weight: bold;
+            color: #007bff;
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+
+        .title-link:hover {
+            color: #0056b3;
+        }
+
+        .form-container {
+            background-color: white;
+            width: 100%;
+            max-width: 800px;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-container input[type="file"] {
+            border: none;
+        }
+
+        .form-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        .post {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .post img {
+            max-width: 30%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .post-content {
+            max-width: 60%;
+        }
+
+        .post h2 {
+            font-size: 1.5em;
+            margin: 10px 0;
+        }
+
+        .post p {
+            font-size: 1em;
+            margin: 10px 0;
+        }
+
+        .rating {
+            font-weight: bold;
+            color: #ff9800;
+        }
+    </style>
+</head>
+<body>
+    <a href="http://127.0.0.1:5500/templates/home.html" class="title-link">Trip Tuner</a>
+
+    <div class="form-container">
+        <h2>Post an Attraction</h2>
+        <form id="attractionForm">
+            <label for="name">Attraction Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter attraction name" required>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" placeholder="Enter a description" required></textarea>
+
+            <label for="rating">Rating</label>
+            <input type="number" id="rating" name="rating" min="1" max="5" placeholder="Enter a rating (1-5)" required>
+
+            <label for="image">Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+
+            <button href="http://127.0.0.1:5500/templates/gems.html" type="submit">Post Attraction</button>
+        </form>
+    </div>
+
+    <div id="posts-container"></div>
+
+    <script>
+        const form = document.getElementById('attractionForm');
+        const postsContainer = document.getElementById('posts-container');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const rating = document.getElementById('rating').value;
+            const image = document.getElementById('image').files[0];
+
+            const reader = new FileReader();
+            reader.onloadend = function() {
+                const postHTML = `
+                    <div class="post">
+                        <div class="post-content">
+                            <h2>${name}</h2>
+                            <p>${description}</p>
+                            <p class="rating">Rating: ${rating}/5</p>
+                        </div>
+                        <img src="${reader.result}" alt="${name}" />
+                    </div>
+                `;
+                postsContainer.innerHTML += postHTML;
+                form.reset();
+            };
+            reader.readAsDataURL(image);
+        });
+    </script>
+</body>
+</html>
 

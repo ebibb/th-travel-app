@@ -7,9 +7,24 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Full viewport height */
+      background-color: #f4f4f4;
+      position: relative;
+    }
+
+    .content {
       display: flex;
       justify-content: space-between;
+      width: 70%;
+      max-width: 1200px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
     .form-container {
@@ -60,57 +75,62 @@
     button:hover {
       background-color: #0056b3;
     }
+
+    /* Style for the title link */
+    .title-link {
+      font-size: 30px;
+      font-weight: bold;
+      color: #007bff;
+      text-decoration: none;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .title-link:hover {
+      color: #0056b3;
+    }
   </style>
 </head>
 <body>
-  <!-- Left Side: Form -->
-  <div class="form-container">
-    <h1>Your Profile</h1>
-    <label for="age">Age</label>
-    <input type="number" id="age" name="age" placeholder="Enter your age">
+  <!-- Title with Link at the top left corner -->
+  <a href="http://127.0.0.1:5500/templates/home.html#" class="title-link">Trip Tuner</a>
 
-    <label for="people">How Many People</label>
-    <input type="number" id="people" name="people" placeholder="Enter number of people">
+  <!-- Content Container -->
+  <div class="content">
+    <!-- Left Side: Form -->
+    <div class="form-container">
+      <h1>Your Profile</h1>
+      <label for="age">Age</label>
+      <input type="number" id="age" name="age" placeholder="Enter your age">
 
-    <label for="kids">Traveling with Kids</label>
-    <select id="kids" name="kids">
-      <option value="yes">Yes</option>
-      <option value="no">No</option>
-    </select>
+      <label for="people">How Many People</label>
+      <input type="number" id="people" name="people" placeholder="Enter number of people">
 
-    <label for="activities">Desired Activities</label>
-    <select id="activities" name="activities">
-      <option value="sightseeing">Sightseeing</option>
-      <option value="adventure">Adventure</option>
-      <option value="relaxation">Relaxation</option>
-      <option value="cultural">Cultural</option>
-      <option value="food">Food</option>
-      <option value="historical">Historical</option>
-    </select>
+      <label for="kids">Traveling with Kids</label>
+      <select id="kids" name="kids">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
 
-    <label for="geo">Geographical Setting</label>
-    <select id="geo" name="geo">
-      <option value="mountains">Mountains</option>
-      <option value="beach">Beach</option>
-      <option value="water">Water</option>
-      <option value="forests">Forests</option>
-    </select>
+      <label for="activities">Desired Activities</label>
+      <select id="activities" name="activities">
+        <option value="sightseeing">Sightseeing</option>
+        <option value="adventure">Adventure</option>
+        <option value="relaxation">Relaxation</option>
+        <option value="cultural">Cultural</option>
+        <option value="food">Food</option>
+        <option value="historical">Historical</option>
+      </select>
 
-
+      <label for="geo">Geographical Setting</label>
+      <select id="geo" name="geo">
+        <option value="mountains">Mountains</option>
+        <option value="beach">Beach</option>
+        <option value="water">Water</option>
+        <option value="forests">Forests</option>
+      </select>
+    </div>
   </div>
-
-<!-- Right Side: Likes -->
-<div class="post-likes">
-  <h2>Your Likes</h2>
-</div>
-
-<!-- Style Section -->
-<style>
-  .post-likes h2 {
-    margin-left: -30px; /* Move the heading further to the left */
-  }
-</style>
-
-
 </body>
 </html>
