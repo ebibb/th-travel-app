@@ -35,5 +35,9 @@
 </head>
 <body>
   <h1 id="searchTitle">Search Results</h1>
+  <p>{{ results }}</p>
+  {% for result_item in results.data %}
+    <p>{{ result_item }}</p>
+  {% endfor %}
 </body>
 </html>
