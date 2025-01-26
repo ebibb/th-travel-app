@@ -39,28 +39,52 @@ def city():
     results_data = res.json()
     
     # img search ####################
-    location_single_id = 0
     
-    params_id = {
-        'locationId': 
-       'key': API_KEY,
-        'language': 'en',
-        'limit': '1',
-        'offset': '0'
-    }
+    # # stores location ids to help search through image database
+    # location_ids = []
     
-    location_id = []
+    # # gets the data file from the first retrieval and gets the location_ids for the area that was searched
+    # for i in results_data.get('data'):
+    #     location_ids.append(i.get('location_id'))
+    #     print(location_ids)
+        
+    # for location_id in location_ids:
+    #     params_id = {
+    #         'locationId': location_id,
+    #         'key': API_KEY,
+    #         'language': 'en',
+    #         'limit': '1'
+    #     }
+
+    #     URLIMG = "https://api.content.tripadvisor.com/api/v1/location/" + str(location_id) + "/photos"
+    #     res_imgs = requests.get(URLIMG, params=params_id)
+    #     print(res_imgs.json())
+    #     print(type(res_imgs))
+    #     # largest_image_url = res_imgs["data"][0]["images"]["original"]["url"]
+    #     # print(largest_image_url)
+    
     
     for i in results_data.get('data'):
-        location_id.append(i.get('location_id'))
+        location_id = i.get('location_id')
+        print(location_id)
         
-    for i in location_id:
-        image_url_single = requests.get(URLIMG, params=params_id)
+        params_id = {
+            'locationId': location_id,
+            'key': API_KEY,
+            'language': 'en',
+            'limit': '1'
+        }
+
+        URLIMG = "https://api.content.tripadvisor.com/api/v1/location/" + str(location_id) + "/photos"
+        res_imgs = requests.get(URLIMG, params=params_id)
+        print(res_imgs.json())
+        print(type(res_imgs))
         
-    
-    # reviews search
-    
-    return render_template('city.html', results=results_data)
+        i['location_id'] = res_imgs.json()
+        # largest_image_url = res_imgs["data"][0]["images"]["original"]["url"]
+        # print(largest_image_url)
+        
+    return (render_template('city.html', results=results_data))
 
 BASE_URL = 'https://aa-api-edbb11e7d431.herokuapp.com/'
 AIRPORTS_BASE = '/airports?code=<code>'

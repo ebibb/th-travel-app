@@ -62,14 +62,14 @@
 </head>
 <body>
   <!-- Trip Tuner Link in the Top Middle -->
-  <a href="http://127.0.0.1:5500/templates/home.html" class="trip-tuner-link">Trip Tuner</a>
+  <!-- <a href="templates/home.html" class="trip-tuner-link">Trip Tuner</a> -->
 
   <h1 id="searchTitle">Search Results</h1>
-  <p>{{ results }}</p>
   {% for result_item in results.data %}
     <p>{{ result_item.name }}</p>
     <p>{{ result_item.address_obj.address_string }}</p>
     <p>{{ result_item.address_obj.country }}</p>
+    <img src="{{ result_item.location_id.data[0].images.thumbnail.url }}" alt="Image" width="250" height="250">
   {% endfor %}
 
   <!-- Flights Button -->
