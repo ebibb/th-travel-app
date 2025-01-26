@@ -9,6 +9,7 @@ load_dotenv()
 API_KEY = os.environ.get("TRIP_ADVISOR_API_KEY")
 
 URL = "https://api.content.tripadvisor.com/api/v1/location/search"
+URLIMG = "https://api.content.tripadvisor.com/api/v1/location/locationId/reviews"
 
 # two decorators, same function
 @app.route('/')
@@ -23,6 +24,7 @@ def profile():
 
 @app.route('/city')
 def city():
+    # city search
     search_info = request.args.get('q')
     
     params = {
@@ -35,8 +37,38 @@ def city():
     res = requests.get(URL, params=params)
     results_data = res.json()
     
+    # img search
+    
+    params_id = {
+        'key': API_KEY,
+        'language': 'en',
+        'limit': '1',
+        'offset': '0'
+    }
+    
+    location_id = []
+    for i in results_data.get('data'):
+        location_id.append(i.get('location_id'))
+        
+    
+        
+    
+    # reviews search
     
     return render_template('city.html', results=results_data)
+
+BASE_URL = 'https://aa-api-edbb11e7d431.herokuapp.com/'
+AIRPORTS_BASE = '/airports?code=<code>'
+
+@app.route('/airport')
+def airport():
+    res = requests.get(BASE_URL + AIRPORTS_BASE.replace('<code>', 'DFW'))
+    results_data = res.json()
+    
+    return results_data
+
+
+
 
 
 @app.route('/symbol.html')
