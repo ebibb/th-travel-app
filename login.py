@@ -1,49 +1,64 @@
+from flask import Flask, request, jsonify
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import bcrypt
 
 # MongoDB connection URI
 uri = "mongodb+srv://joyceyouu:OOISu8HkaOAeRQgE@cluster0.ky6x6.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-# Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print("Connection error:", e)
-    exit()
+# Flask app
+app = Flask(__name__)
 
-try:
-    # Access database and collection
-    database = client["joyceyouu"]
-    collection = database["users"]  # Changed collection name to 'users'
+# Database setup
+database = client["joyceyouu"]
+collection = database["users"]  # Collection for user data
 
-    # Get account details from the user
-    username = input("Enter username: ").strip()
-    password = input("Enter password: ").strip()
+@app.route('/create-account', methods=['POST'])
+def create_account():
+    try:
+        # Get data from the form
+        data = request.form
+        username = data.get("username").strip()
+        password = data.get("password").strip()
+        full_name = data.get("name").strip()
+        email = data.get("email").strip()
+        age = int(data.get("age").strip())
+        people = int(data.get("people").strip())
+        kids = data.get("kids").strip().lower()
+        activities = data.get("activities").strip().lower()
 
-    # Check for duplicate username
-    if collection.find_one({"username": username}):
-        print("Error: Username already exists. Please choose a different username.")
-    else:
+        # Check if username already exists
+        if collection.find_one({"username": username}):
+            return jsonify({"error": "Username already exists"}), 400
+
         # Hash the password for security
         hashed_password = bcrypt.hashpw(password.encode('utf-8'), bcrypt.gensalt())
 
-        # Insert new user into the database
-        result = collection.insert_one({
+        # Create user document with profile information
+        user_document = {
             "username": username,
-            "password": hashed_password.decode('utf-8')  # Store hashed password as a string
-        })
+            "password": hashed_password.decode('utf-8'),  # Store hashed password as a string
+            "profile": {
+                "full_name": full_name,
+                "email": email,
+                "age": age,
+                "people": people,
+                "kids": kids,
+                "activities": activities
+            }
+        }
+
+        # Insert the user into the database
+        result = collection.insert_one(user_document)
 
         if result.acknowledged:
-            print("Account created successfully!")
+            return jsonify({"message": "Account created successfully"}), 201
         else:
-            print("Failed to create account.")
+            return jsonify({"error": "Failed to create account"}), 500
 
-    # Close the database connection
-    client.close()
-except Exception as e:
-    print("An error occurred:", e)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)
