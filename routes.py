@@ -9,7 +9,8 @@ load_dotenv()
 API_KEY = os.environ.get("TRIP_ADVISOR_API_KEY")
 
 URL = "https://api.content.tripadvisor.com/api/v1/location/search"
-URLIMG = "https://api.content.tripadvisor.com/api/v1/location/locationId/reviews"
+URLIMG = "https://api.content.tripadvisor.com/api/v1/location/locationId/photos"
+URLRVW = "https://api.content.tripadvisor.com/api/v1/location/locationId/reviews"
 
 # two decorators, same function
 @app.route('/')
@@ -24,7 +25,7 @@ def profile():
 
 @app.route('/city')
 def city():
-    # city search
+    # city search ##################
     search_info = request.args.get('q')
     
     params = {
@@ -37,9 +38,10 @@ def city():
     res = requests.get(URL, params=params)
     results_data = res.json()
     
-    # img search
+    # img search ####################
     
     params_id = {
+        'locationId': 
         'key': API_KEY,
         'language': 'en',
         'limit': '1',
