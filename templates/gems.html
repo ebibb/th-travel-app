@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Gems</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .gems {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+        .name {
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>User Gems</h1>
+    <div id="gems-container">
+        {% for gem in gems %}
+        <div class="gems">
+            <p class="name">{{ gem.name }}</p>
+            <p>{{ gem.content }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+

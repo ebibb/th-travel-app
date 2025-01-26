@@ -40,13 +40,13 @@ def city():
     
     # img search ####################
     
-    params_id = {
-        'locationId': 
-        'key': API_KEY,
-        'language': 'en',
-        'limit': '1',
-        'offset': '0'
-    }
+    # params_id = {
+    #     'locationId': 
+    #     'key': API_KEY,
+    #     'language': 'en',
+    #     'limit': '1',
+    #     'offset': '0'
+    # }
     
     location_id = []
     for i in results_data.get('data'):

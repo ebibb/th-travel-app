@@ -80,17 +80,29 @@
   <!-- Title Section -->
   <h1>Trip Tuner</h1>
 
-  <!-- Search Section -->
-  <div class="search-container">
-    <form action="/city" method="get">
-      <input type="text" name="q" placeholder="Search...">
-      <button type="submit">Search</button>
-    </form>
-  </div>
+    <!-- Search Section -->
+    <div class="search-container">
+      <form action="/city" method="get">
+        <input type="text" name="q" placeholder="Search...">
+        <button type="submit">Search</button>
+      </form>
+    </div>
 
-  <!-- Content Section -->
+   <!-- Content Section -->
+   <style>
+    .content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: calc(50vh - 40px); /* Full height minus the menu bar */
+      padding-bottom: 10px; /* Space for the fixed menu */
+      text-align: center;
+    }
+  </style>
+  
   <div class="content">
-    <h2>Top Matches</h2>
+    <h2>Your Journey Begins Here.</h2>
     <p>Explore some of the best travel destinations tailored for you!</p>
     <p>Use the search bar above to find more options.</p>
   </div>
@@ -98,7 +110,7 @@
   <!-- Bottom Fixed Menu Bar -->
   <div class="menu-bar">
     <!-- Icon 1 -->
-    <a href="http://127.0.0.1:5500/templates/gem.html">
+    <a href="http://127.0.0.1:5500/templates/gems.html">
     <img src="https://cdn.iconscout.com/icon/premium/png-256-thumb/gem-1761942-1500326.png?f=webp&w=256" alt="Icon 1" width="340" height="370">
     </a>
 
