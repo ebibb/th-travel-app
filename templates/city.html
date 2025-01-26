@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #007bff;
+    }
+  </style>
+  <script>
+    // This script will dynamically update the title and content based on the query
+    window.onload = function () {
+      // Get the query parameter from the URL
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get("q");
+
+      if (query) {
+        // Set the title of the page to the search query
+        document.title = query;
+
+        // Display the search query as the page's title
+        document.getElementById("searchTitle").innerText = `Search Results for: ${query}`;
+      } else {
+        // If no query is provided, show a default message
+        document.getElementById("searchTitle").innerText = "No Search Query Provided";
+      }
+    };
+  </script>
+</head>
+<body>
+  <h1 id="searchTitle">Search Results</h1>
+</body>
+</html>

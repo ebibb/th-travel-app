@@ -3,9 +3,8 @@ app = Flask(__name__)
 
 # two decorators, same function
 @app.route('/')
-@app.route('/index.html')
 def index():
-    return render_template('index.html', the_title='Tiger Home Page')
+    return render_template('home.html', the_title='Tiger Home Page')
 
 @app.route('/symbol.html')
 def symbol():
