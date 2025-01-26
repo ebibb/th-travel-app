@@ -1,25 +1,28 @@
-<h1> Trip Tuner </h1>
-  <style>
-  h1 {
-    font-size: 40px;  /* Adjust the font size as needed */
-  }
-  </style>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Search Bar Example</title>
+  <title>Home</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      padding: 0;
     }
+
+    h1 {
+      font-size: 40px;  /* Adjust the font size as needed */
+      text-align: center; /* Center the title */
+      margin-top: 20px;
+    }
+
     .search-container {
       max-width: 1000px;
       margin: auto;
+      padding: 20px;
     }
+
     input[type="text"] {
       width: 80%;
       padding: 10px;
@@ -27,6 +30,7 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+
     button {
       padding: 10px 15px;
       font-size: 16px;
@@ -36,64 +40,69 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
     button:hover {
       background-color: #0056b3;
     }
-  </style>
-</head>
-<body>
-  <div class="search-container">
-    <form action="/search" method="get">
-      <input type="text" name="q" placeholder="Search...">
-      <button type="submit">Search</button>
-    </form>
-  </div>
-</body>
-</html>
 
-
-<!-- note how items from the "static" folder are linked -->
-<h2> Top Matches </h2>
-
-<title>Top Right Corner Text</title>
-  <style>
     .top-right {
       position: absolute;
       top: 10px;
       right: 10px;
       font-size: 24px;
     }
+
+    /* Fixed menu bar at the bottom */
+    .menu-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #f4f4f4; /* Light background color */
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      border-top: 1px solid #ddd; /* Optional: adds a subtle border at the top */
+    }
+
+    .menu-bar img {
+      width: 40px;  /* Adjust icon size */
+      height: 40px;
+    }
+
+    /* Add some space for content to scroll */
+    .content {
+      padding-bottom: 60px; /* Space for the fixed menu */
+    }
   </style>
 </head>
 <body>
+  <h1>Trip Tuner</h1>
+
+  <!-- Search Section -->
+  <div class="search-container">
+    <form action="/search" method="get">
+      <input type="text" name="q" placeholder="Search...">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <!-- Top Right Text -->
   <div class="top-right">
     Your Profile
   </div>
+
+  <!-- Content Section (Just for scrolling behind the menu bar) -->
+  <div class="content">
+    <h2>Top Matches</h2>
+
+
+  <!-- Bottom Fixed Menu Bar -->
+  <div class="menu-bar">
+    <!-- Insert icons here -->
+    <img src="pngtree-vector-plus-icon-png-image_515260.jpg" alt="Icon 1">
+    <img src="path/to/your/icon2.png" alt="Icon 2">
+  </div>
+
 </body>
 </html>
-
-
-
-
-
-
-
-
-<img alt="Photo: Bengal Tiger" src="{{ url_for('static', filename='images/tiger.jpg') }}">
-<p class="credit">Photo by John and Karen Hollingsworth, retouched by Zwoenitzer (Fish &amp; Wildlife Service, ID WO0409-33F) [Public domain] <a href="https://commons.wikimedia.org/wiki/File%3APanthera_tigris_tigris.jpg" target="_blank">via Wikimedia Commons</a></p>
-
-<p>This is the index page for my example Flask app.</p>
-
-<ul>
-  <!-- note how items from routes in the the Python script are linked -->
-  <li><a href="{{ url_for('myth') }}">In myth and legend</a></li>
-  <li><a href="{{ url_for('symbol') }}">As a symbol</a></li>
-</ul>
-
-<p>The tiger (<em>Panthera tigris</em>) is the largest cat species, most recognisable for their pattern of dark vertical stripes on reddish-orange fur with a lighter underside. The species is classified in the genus <em>Panthera</em> with the lion, leopard, jaguar and snow leopard. Tigers are apex predators, primarily preying on ungulates such as deer and bovids. They are territorial and generally solitary but social animals, often requiring large contiguous areas of habitat that support their prey requirements. This, coupled with the fact that they are indigenous to some of the more densely populated places on Earth, has caused significant conflicts with humans.</p>
-
-<p>Tigers once ranged widely across eastern Eurasia, from the Black Sea in the west, to the Indian Ocean in the south, and from Kolyma to Sumatra in the east. Over the past 100 years, they have lost 93% of their historic range, and have been extirpated from Western and Central Asia, from the islands of Java and Bali, and from large areas of Southeast, Southern and Eastern Asia. Today, they range from the Siberian taiga to open grasslands and tropical mangrove swamps. The remaining six tiger subspecies have been classified as endangered by the International Union for Conservation of Nature (IUCN). The global population in the wild is estimated to number between 3,062 and 3,948 individuals, down from around 100,000 at the start of the 20th century, with most remaining populations occurring in small pockets isolated from each other, of which about 2,000 exist on the Indian subcontinent. A 2016 global census estimated the population of wild tigers at approximately 3,890 individuals.</p>
-
-<p>(Text from <a href="https://en.wikipedia.org/wiki/Tiger" target="_blank">Wikipedia</a>)</p>
-
-
