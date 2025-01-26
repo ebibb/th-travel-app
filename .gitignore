@@ -6,9 +6,11 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+.env
 
 # Python executables
 *.pyc
 
 # folders to be ignored
 env/
+

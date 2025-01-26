@@ -35,5 +35,35 @@
 </head>
 <body>
   <h1 id="searchTitle">Search Results</h1>
+  <p>{{ results }}</p>
+  {% for result_item in results.data %}
+    
+  <p>{{ result_item.name}}</p>
+  <p>{{ result_item.address_obj}}</p>
+  <p>{{ result_item }}</p>
+  <p>{{ result_item }}</p>
+
+  {% endfor %}
 </body>
+
+<title>Button on the Right</title>
+  <style>
+    .flights-button {
+      position: absolute;
+      right: 20px; /* Distance from the right edge */
+      top: 10%; /* Adjusted to position higher */
+      transform: translateY(-50%); /* Ensures vertical centering */
+      font-size: 24px; /* Makes the button text larger */
+      padding: 15px 30px; /* Increases button size with more padding */
+      border-radius: 8px; /* Adds rounded corners */
+    }
+  </style>
+</head>
+<body>
+  <button class="flights-button">Flights</button>
+  <a href="flights.html">
+    <button class="flights-button">Flights</button>
+  </a>
+</body>
+
 </html>
