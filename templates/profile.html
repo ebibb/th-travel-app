@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .form-container {
+      width: 45%;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .post-container {
+      width: 45%;
+      text-align: right;
+    }
+
+    .post-container h2 {
+      text-align: center;
+      font-size: 24px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <!-- Left Side: Form -->
+  <div class="form-container">
+    <h1>Your Profile</h1>
+    <label for="age">Age</label>
+    <input type="number" id="age" name="age" placeholder="Enter your age">
+
+    <label for="people">How Many People</label>
+    <input type="number" id="people" name="people" placeholder="Enter number of people">
+
+    <label for="kids">Traveling with Kids</label>
+    <select id="kids" name="kids">
+      <option value="yes">Yes</option>
+      <option value="no">No</option>
+    </select>
+
+    <label for="activities">Desired Activities</label>
+    <select id="activities" name="activities">
+      <option value="sightseeing">Sightseeing</option>
+      <option value="adventure">Adventure</option>
+      <option value="relaxation">Relaxation</option>
+      <option value="cultural">Cultural</option>
+      <option value="food">Food</option>
+    </select>
+  </div>
+
+  <!-- Right Side: Post Button -->
+  <div class="post-container">
+    <h2>Your Posts</h2>
+    <button type="button">Post</button>
+  </div>
+</body>
+</html>
