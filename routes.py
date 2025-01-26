@@ -136,16 +136,21 @@ def airport():
     return results_data
 
 
-
-
-
 @app.route('/profile.html')
 def profile():
     return render_template('profile.html', the_title='profile')
 
-@app.route('/myth.html')
-def myth():
-    return render_template('myth.html', the_title='Tiger in Myth and Legend')
+@app.route('/flights.html')
+def flights():
+    return render_template('flights.html', the_title='flights')
+
+@app.route('/gem.html')
+def gem():
+    return render_template('gem.html', the_title='Gem')
+
+@app.route('/post.html')
+def post():
+    return render_template('post.html', the_title='Post')
 
 @app.route('/createacc.html')
 def createacc():
