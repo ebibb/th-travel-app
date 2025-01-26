@@ -38,8 +38,8 @@
   <p>{{ results }}</p>
   {% for result_item in results.data %}
     <p>{{ result_item.name }}</p>
-    <p>{{ result_item.address_string }}</p>
-    <p>{{ result_item.country }}</p>
+    <p>{{ result_item.address_obj.address_string }}</p>
+    <p>{{ result_item.address_obj.country }}</p>
   {% endfor %}
 </body>
 

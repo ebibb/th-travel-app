@@ -39,9 +39,10 @@ def city():
     results_data = res.json()
     
     # img search ####################
+    location_single_id = 0
     
     params_id = {
-        'locationId': 
+        'locationId': location_single_id,
         'key': API_KEY,
         'language': 'en',
         'limit': '1',
@@ -49,10 +50,12 @@ def city():
     }
     
     location_id = []
+    
     for i in results_data.get('data'):
         location_id.append(i.get('location_id'))
         
-    
+    for i in location_id:
+        image_url_single = requests.get(URLIMG, params=params_id)
         
     
     # reviews search
