@@ -1,11 +1,3 @@
-# Basic Flask App
+# Travel App
 
-This small repo demonstrates a proper file structure for a Flask app. The folders named *static* and *templates* are required.
-
-**Routes** and **static files** are handled correctly in all `src` and `href` attributes in the template files.
-
-The template file `base.html` is used as a shell by the other three HTML templates. This means they insert content into `base.html` according to Jinja2 template rules.
-
-After installing all dependencies, run the app by entering its folder and typing:
-
-`$ python routes.py`
+This Flask app allows users to search for travel locations, make posts about their favorite places, and browse posts from others with similar demographic profiles. It uses an API to fetch travel information and integrates user profiles for personalized recommendations. The structure follows standard Flask conventions with properly managed static files and templates.
